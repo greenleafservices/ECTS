@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equipment</h1>
+
+<%#= @equipment.inspect %>
+
+<% @equipment.each do |e| %>
+  ID <%= e.id %>
+  Cust_id <%= e.cust_id %>
+  Customer_id <%= e.customer_id %>
+  <%#= @customer.id %>
+  </br>
+<% end %>
+
+
+<h1>Customer</h1>
+
+<%#= @customer.inspect %>
+
+<% @customer.each do |c| %>
+  ID <%= c.id %>
+  Cust_id <%= c.cust_id %>
+  Name <%= c.last_name %>
+  <%#= c.equipment.id %>
+  </br>
+<% end %>
+

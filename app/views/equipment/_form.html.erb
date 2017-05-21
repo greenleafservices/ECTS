@@ -1,0 +1,62 @@
+<%= form_for(equipment) do |f| %>
+  <% if equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cust_id %>
+    <%= f.text_field :cust_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :equip_id %>
+    <%= f.text_field :equip_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :csa %>
+    <%= f.text_field :csa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :serial %>
+    <%= f.text_field :serial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :manufacturer %>
+    <%= f.text_field :manufacturer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_type %>
+    <%= f.text_field :product_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_installed %>
+    <%= f.date_select :date_installed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_id %>
+    <%= f.text_field :customer_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

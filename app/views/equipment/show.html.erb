@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust:</strong>
+  <%= @equipment.cust_id %>
+</p>
+
+<p>
+  <strong>Equip:</strong>
+  <%= @equipment.equip_id %>
+</p>
+
+<p>
+  <strong>Csa:</strong>
+  <%= @equipment.csa %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @equipment.serial %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @equipment.model %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @equipment.manufacturer %>
+</p>
+
+<p>
+  <strong>Product type:</strong>
+  <%= @equipment.product_type %>
+</p>
+
+<p>
+  <strong>Date installed:</strong>
+  <%= @equipment.date_installed %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @equipment.customer %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+<%= link_to 'Back', equipment_index_path %>

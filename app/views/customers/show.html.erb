@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust:</strong>
+  <%= @customer.cust_id %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @customer.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @customer.last_name %>
+</p>
+
+<div>
+          <!--<%#= render @blog.comments.recent %>-->
+          <%= render @customer.equipment %>
+</div>
+<!--<p>-->
+<!--  <strong>Address1:</strong>-->
+<!--  <%= @customer.address1 %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Address2:</strong>-->
+<!--  <%= @customer.address2 %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>City:</strong>-->
+<!--  <%= @customer.city %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>St:</strong>-->
+<!--  <%= @customer.st %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Zip:</strong>-->
+<!--  <%= @customer.zip %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Home phone:</strong>-->
+<!--  <%= @customer.home_phone %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Work phone:</strong>-->
+<!--  <%= @customer.work_phone %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Cell phone:</strong>-->
+<!--  <%= @customer.cell_phone %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Email:</strong>-->
+<!--  <%= @customer.email %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Auto serv:</strong>-->
+<!--  <%= @customer.auto_serv %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Notes:</strong>-->
+<!--  <%= @customer.notes %>-->
+<!--</p>-->
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
