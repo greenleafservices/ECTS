@@ -1,0 +1,30 @@
+@equipment = Equipment.where ("cust_id = '26'")
+ 2.4.0 :066 > @equipment.each do |e|
+2.4.0 :067 >     e.customer_id = 17
+2.4.0 :068?>   e.save
+2.4.0 :069?>   end
+
+@customer = Customer.where ("cust_id = '@equipment.cust_id'")
+@customer = Customer.where("cust_id = '@equipment.first.id'")
+ecid= @equipment.first.cust_id.to_i
+
+@customer = Customer.where(cust_id: @equipment.first.cust_id.to_i)
+
+@equipment = Equipment.where ("cust_id = '26'")
+@customer = Customer.where(cust_id: @equipment.first.cust_id.to_i)
+2.4.0 :066 > @equipment.each do |e|
+2.4.1 @customer = Customer.where(cust_id: @equipment.first.cust_id.to_i)
+2.4.0 :067 >     e.customer_id = 17
+2.4.0 :068?>   e.save
+2.4.0 :069?>   end
+
+@equipment = Equipment.where ("cust_id = '25'")
+@customer = Customer.where(cust_id: @equipment.first.cust_id.to_i)
+ccid = @customer.first.id
+
+2.4.0 :153 > @equipment.each do |e|
+2.4.0 :154 >     @customer = Customer.where(cust_id: e.cust_id.to_i)
+2.4.0 :155?>   ccid = @customer.first.id
+2.4.0 :156?>   e.customer_id = ccid
+2.4.0 :157?>   e.save
+2.4.0 :158?>   end
