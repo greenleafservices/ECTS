@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Csas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cust</th>
+      <th>Csa</th>
+      <th>Equip</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Term</th>
+      <th>Equip desc</th>
+      <th>Total perks</th>
+      <th>Equipment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @csas.each do |csa| %>
+      <tr>
+        <td><%= csa.cust_id %></td>
+        <td><%= csa.csa %></td>
+        <td><%= csa.equip_id %></td>
+        <td><%= csa.start_date %></td>
+        <td><%= csa.end_date %></td>
+        <td><%= csa.term %></td>
+        <td><%= csa.equip_desc %></td>
+        <td><%= csa.total_perks %></td>
+        <td><%= csa.equipment %></td>
+        <td><%= link_to 'Show', csa %></td>
+        <td><%= link_to 'Edit', edit_csa_path(csa) %></td>
+        <td><%= link_to 'Destroy', csa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Csa', new_csa_path %>

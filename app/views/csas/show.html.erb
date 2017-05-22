@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust:</strong>
+  <%= @csa.cust_id %>
+</p>
+
+<p>
+  <strong>Csa:</strong>
+  <%= @csa.csa %>
+</p>
+
+<p>
+  <strong>Equip:</strong>
+  <%= @csa.equip_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @csa.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @csa.end_date %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @csa.term %>
+</p>
+
+<p>
+  <strong>Equip desc:</strong>
+  <%= @csa.equip_desc %>
+</p>
+
+<p>
+  <strong>Total perks:</strong>
+  <%= @csa.total_perks %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @csa.equipment %>
+</p>
+
+<%= link_to 'Edit', edit_csa_path(@csa) %> |
+<%= link_to 'Back', csas_path %>

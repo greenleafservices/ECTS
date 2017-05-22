@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519222446) do
+ActiveRecord::Schema.define(version: 20170522165016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "csas", force: :cascade do |t|
+    t.string   "cust_id"
+    t.string   "csa"
+    t.string   "equip_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "term"
+    t.string   "equip_desc"
+    t.decimal  "total_perks"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["equipment_id"], name: "index_csas_on_equipment_id", using: :btree
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string   "cust_id"
@@ -49,5 +64,6 @@ ActiveRecord::Schema.define(version: 20170519222446) do
     t.index ["customer_id"], name: "index_equipment_on_customer_id", using: :btree
   end
 
+  add_foreign_key "csas", "equipment"
   add_foreign_key "equipment", "customers"
 end

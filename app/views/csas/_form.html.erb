@@ -1,0 +1,62 @@
+<%= form_for(csa) do |f| %>
+  <% if csa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(csa.errors.count, "error") %> prohibited this csa from being saved:</h2>
+
+      <ul>
+      <% csa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cust_id %>
+    <%= f.text_field :cust_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :csa %>
+    <%= f.text_field :csa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :equip_id %>
+    <%= f.text_field :equip_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :term %>
+    <%= f.number_field :term %>
+  </div>
+
+  <div class="field">
+    <%= f.label :equip_desc %>
+    <%= f.text_field :equip_desc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_perks %>
+    <%= f.text_field :total_perks %>
+  </div>
+
+  <div class="field">
+    <%= f.label :equipment_id %>
+    <%= f.text_field :equipment_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
