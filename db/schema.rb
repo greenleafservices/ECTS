@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522165016) do
+ActiveRecord::Schema.define(version: 20170523155143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170522165016) do
     t.integer  "equipment_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_csas_on_customer_id", using: :btree
     t.index ["equipment_id"], name: "index_csas_on_equipment_id", using: :btree
   end
 
@@ -52,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170522165016) do
   create_table "equipment", force: :cascade do |t|
     t.string   "cust_id"
     t.string   "equip_id"
-    t.string   "csa"
+    t.string   "csa1"
     t.string   "serial"
     t.string   "model"
     t.string   "manufacturer"
@@ -61,9 +63,13 @@ ActiveRecord::Schema.define(version: 20170522165016) do
     t.integer  "customer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "csa_id"
+    t.index ["csa_id"], name: "index_equipment_on_csa_id", using: :btree
     t.index ["customer_id"], name: "index_equipment_on_customer_id", using: :btree
   end
 
+  add_foreign_key "csas", "customers"
   add_foreign_key "csas", "equipment"
+  add_foreign_key "equipment", "csas"
   add_foreign_key "equipment", "customers"
 end

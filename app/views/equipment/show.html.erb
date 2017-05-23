@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>EquipID:</strong>
+  <%= @equipment.id %>
+</p>
+
+<p>
   <strong>Csa:</strong>
   <%= @equipment.csa %>
 </p>
@@ -42,7 +47,7 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @equipment.customer %>
+  <%= @equipment.customer_id %>
 </p>
 
 <%= link_to 'Edit', edit_equipment_path(@equipment) %> |

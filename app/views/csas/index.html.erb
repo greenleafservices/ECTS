@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Cust</th>
       <th>Csa</th>
       <th>Equip</th>
@@ -21,6 +22,7 @@
   <tbody>
     <% @csas.each do |csa| %>
       <tr>
+        <td><%= csa.id %></td>
         <td><%= csa.cust_id %></td>
         <td><%= csa.csa %></td>
         <td><%= csa.equip_id %></td>
@@ -29,7 +31,7 @@
         <td><%= csa.term %></td>
         <td><%= csa.equip_desc %></td>
         <td><%= csa.total_perks %></td>
-        <td><%= csa.equipment %></td>
+        <td><%= csa.equipment_id %></td>
         <td><%= link_to 'Show', csa %></td>
         <td><%= link_to 'Edit', edit_csa_path(csa) %></td>
         <td><%= link_to 'Destroy', csa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

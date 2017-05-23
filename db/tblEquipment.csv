@@ -1,4 +1,4 @@
-cust_id,equip_id,csa,serial,model,manufacturer,product_type,date_installed,created_at,updated_at
+cust_id,equip_id,csa1,serial,model,manufacturer,product_type,date_installed,created_at,updated_at
 8,10,,,,Trane,Furnace,10/24/2001,05/19/2017,05/19/2017
 9,11,,8127644,GUVA070BX40,Amana,Furnace,10/24/2001,05/19/2017,05/19/2017
 9,12,,9801174251,CCA30FDC,Amana,AC Coil,10/24/2001,05/19/2017,05/19/2017
