@@ -3,7 +3,7 @@ class CreateEquipment < ActiveRecord::Migration[5.0]
     create_table :equipment do |t|
       t.string :cust_id
       t.string :equip_id
-      t.string :csa
+      t.string :csa1
       t.string :serial
       t.string :model
       t.string :manufacturer
