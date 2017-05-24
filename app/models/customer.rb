@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
-  # has_many :equipment
-  # has_many :csas, through: :equipment 
+  has_many :equipment
+  has_many :csas, through: :equipment 
   
   def self.to_csv
     attributes = %w{id cust_id}
