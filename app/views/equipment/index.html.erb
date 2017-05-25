@@ -5,11 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>EquipID</th>
-      <th>Cust</th>
-      <th>Equip</th>
-      <th>Csa1</th>
-      <th>Csa_ID</th>
+      <th>Equip_Old_id</th>
+      <th>Equip_NewID</th>
+      <th>Cust_Old</th>
+      <th>Cust_New</th>
+      <th>Csa_Old</th>
+      <th>Csa_New</th>
       <th>Serial</th>
       <th>Model</th>
       <th>Manufacturer</th>
@@ -23,9 +24,10 @@
   <tbody>
     <% @equipment.each do |equipment| %>
       <tr>
+        <td><%= equipment.equip_id %></td>
         <td><%= equipment.id %></td>
         <td><%= equipment.cust_id %></td>
-        <td><%= equipment.equip_id %></td>
+        <td><%= equipment.customer_id %></td>
         <td><%= equipment.csa1 %></td>
         <td><%= equipment.csa_id %></td>
         <td><%= equipment.serial %></td>
@@ -33,7 +35,6 @@
         <td><%= equipment.manufacturer %></td>
         <td><%= equipment.product_type %></td>
         <td><%= equipment.date_installed %></td>
-        <td><%= equipment.customer_id %></td>
         <td><%= link_to 'Show', equipment %></td>
         <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
         <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

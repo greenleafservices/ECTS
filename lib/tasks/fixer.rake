@@ -1,11 +1,21 @@
 namespace :fixEquip_IDS do
   task doFix:  :environment do
-    @equipment = Equipment.all
+    $e_count = 1
+    # @equipment = Equipment.all
+    @equipment = Equipment.where("NOT cust_id ='8414'")
     @equipment.each do |e|
+      puts "e_count = #{$e_count}"
+      puts "e_cust_id = #{e.cust_id}"
+      #Find the customer with the old cust_id in the Customer file
       @customer = Customer.where(cust_id: e.cust_id.to_i)
-      ccid = @customer.first.id
-      e.customer_id = ccid
-      e.save  
+      #Get the new customer id for this customer
+      $ccid = @customer.first.id
+      #Write the new id for the customer
+      e.customer_id = $ccid
+      e.save 
+      $e_count = $e_count +1
+      puts "New e_count = #{$e_count}"
+      puts "New_cust_id = #{$ccid}"
     end
   end
 end
@@ -15,16 +25,28 @@ end
 
 namespace :fixCSA_IDS do
    task doFix:  :environment do
-    # @equipment = Equipment.all 
+    # @equipment = Equipment.all
+    $e_count = 1
     @equipment = Equipment.where("NOT csa1 IS NULL") 
     @equipment.each do |e|
-      # Find the CSA matching record
+      puts "e_count = #{$e_count}"
+      puts "e_csa1 = #{e.csa1}"
+       #Find the CSA matching record
       @csa = Csa.where(csa: e.csa1)
-      # Load the variable
-      csaid = @csa.first.id
+      @csa.each do |c|
+        if  c.csa = nil
+          $csaid = "999X"
+        else
+       #Load the variable
+          $csaid = @csa.first.id
+        end
+      end
       # Write the variable to the equipment record
-      e.csa_id = csaid
-      e.save  
+      e.csa_id = $csaid
+      e.save 
+      $e_count = $e_count +1
+      puts "e_count = #{$e_count}"
+      puts "csaid = #{$csaid}"
     end
   end
 end

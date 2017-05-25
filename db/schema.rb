@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20170523155143) do
     t.string   "manufacturer"
     t.string   "product_type"
     t.date     "date_installed"
+    t.date     "last_service_date"
+    t.integer  "recommended_service"
+    t.date     "next_service_date"
+    t.text     "equipment_notes"
+    t.string    "warranty_policy"
+    t.integer  "extended"
+    t.string   "warranty_length"
+    t.string   "warranty_type"
+    t.date     "expiration_date"
+    t.text     "warranty_notes"
+    t.integer  "hide"
     t.integer  "customer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

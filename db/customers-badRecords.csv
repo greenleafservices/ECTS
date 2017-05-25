@@ -1,0 +1,10 @@
+cust_id,first_name,last_name,address1,address2,city,st,zip,home_phone,work_phone,cell_phone,email,auto_serv,notes,created_at,updated_at
+2206,Mary Jo,Latherow,254 Waugaman Road,,Harrison City,PA,15636-,(724) 691-9922,,,,0,"Previous owner:
+Mary Jo & David Felentzer",05/24/2017,05/24/2017
+3203,Jamie,Gruzska,691 Bridge Street,,North Huntingdon,PA,15642-,(412) 242-6279,,(412) 613-0582,,0,"Rental Property
+Rented by Maria 724-863-1171",05/24/2017,05/24/2017
+6649,Irwin Eye Care,Snyder,511 Main Street,,Irwin,PA,15642-,(000) 000-0000,,,,0,"Bill: William Snyder Funeral Home
+521 Main Street
+Irwin, PA  15642
+724-863-1200",05/24/2017,05/24/2017
+388,Rose,Laukus,0 ,,,PA,,(000) 000-0000,,,,0,Conservation Speed Cntrol,05/24/2017,05/24/2017
