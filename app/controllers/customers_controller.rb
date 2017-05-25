@@ -5,18 +5,20 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
-    
+    #*************** Process for generating a csv file ****************
+    #*************** Output is customers.csv in temp file
     respond_to do |format|
       format.html
       format.csv { send_data @customers.to_csv }
     end
+    #************************************
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
     # @customer = Customer.find(params[:id])
-    @customer = Customer.includes(:equipment).find(params[:id])
+    @customer = Customer.includes(:equipment, :csas).find(params[:id])
    
   end
 

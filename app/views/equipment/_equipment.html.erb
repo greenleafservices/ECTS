@@ -1,30 +1,18 @@
 
-<table>
-  <thead>
-    <tr>
-      <th>EquipID</th>
-      <th>Old_EquipID</th>
-      <th>CustID</th>
-      <th>Old_CustID</th>
-      <th>CSA_1</th>
-      <th>CCA_ID</th>
-      <th>Serial</th>
-      <th>Model</th>
-    </tr>
-  </thead>
+<div class="equip-card">
+  <div class="equip-card-block">
+    <div class = "row">
+      <div class="col-md-1"><%= equipment.id %></div>
+      <div class="col-md-1"><%= equipment.equip_id %></div>
+      <div class="col-md-1"><%= equipment.customer_id %></div>
+      <div class="col-md-1"><%= equipment.cust_id %></div>
+      <div class="col-md-1"><%= equipment.csa1 %></div>
+      <div class="col-md-1"><%= equipment.csa_id %></div>
+      <div class="col-md-2"><%= equipment.serial %></div>
+      <div class="col-md-1"><%= equipment.model %></div>        
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <tr>
-        <td><%= equipment.id %></td>
-        <td><%= equipment.equip_id %></td>
-        <td><%= equipment.customer_id %></td>
-        <td><%= equipment.cust_id %></td>
-        <td><%= equipment.csa1 %></td>
-        <td><%= equipment.csa_id %></td>
-        <td><%= equipment.serial %></td>
-        <td><%= equipment.model %></td>
-      </tr>
-    </tbody>
-</table>
 
 

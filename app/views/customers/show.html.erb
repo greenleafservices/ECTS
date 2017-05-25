@@ -21,8 +21,38 @@
 </p>
 
 <div>
-          <!--<%#= render @blog.comments.recent %>-->
-          <%= render @customer.equipment %>
+  <h2>Equipment Information</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">EquipID</div>
+        <div class="col-md-1">Old_EquipID</div>
+        <div class="col-md-1">Customer</div>
+        <div class="col-md-1">CustID&nbsp</div>
+        <div class="col-md-1">CSA_Old</div>
+        <div class="col-md-1">CSA_New</div>
+        <div class="col-md-2">Serial</div>
+        <div class="col-md-1">Model</div>        
+      </div>
+    </div>
+  </div>
+  <%= render @customer.equipment %>
+          
+</div>
+
+<div>
+  <h2>CSA Information</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">ID</div>
+        <div class="col-md-1">CSA_1</div>
+        <div class="col-md-1">Old_EquipID</div>
+        <div class="col-md-1">Old_CustID</div>
+      </div>
+    </div>
+  </div>
+  <%= render @customer.csas %>
 </div>
 <!--<p>-->
 <!--  <strong>Address1:</strong>-->
