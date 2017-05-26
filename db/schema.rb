@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523155143) do
+ActiveRecord::Schema.define(version: 20170526134750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20170523155143) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "equip_notes", force: :cascade do |t|
+    t.string   "cust_id"
+    t.string   "equip_id"
+    t.text     "equip_notes"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["equipment_id"], name: "index_equip_notes_on_equipment_id", using: :btree
+  end
+
   create_table "equipment", force: :cascade do |t|
     t.string   "cust_id"
     t.string   "equip_id"
@@ -64,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170523155143) do
     t.integer  "recommended_service"
     t.date     "next_service_date"
     t.text     "equipment_notes"
-    t.string    "warranty_policy"
+    t.string   "warranty_policy"
     t.integer  "extended"
     t.string   "warranty_length"
     t.string   "warranty_type"
@@ -72,8 +82,8 @@ ActiveRecord::Schema.define(version: 20170523155143) do
     t.text     "warranty_notes"
     t.integer  "hide"
     t.integer  "customer_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "csa_id"
     t.index ["csa_id"], name: "index_equipment_on_csa_id", using: :btree
     t.index ["customer_id"], name: "index_equipment_on_customer_id", using: :btree
@@ -81,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170523155143) do
 
   add_foreign_key "csas", "customers"
   add_foreign_key "csas", "equipment"
+  add_foreign_key "equip_notes", "equipment"
   add_foreign_key "equipment", "csas"
   add_foreign_key "equipment", "customers"
 end

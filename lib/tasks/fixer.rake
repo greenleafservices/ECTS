@@ -25,7 +25,6 @@ end
 
 namespace :fixCSA_IDS do
    task doFix:  :environment do
-    # @equipment = Equipment.all
     $e_count = 1
     @equipment = Equipment.where("NOT csa1 IS NULL") 
     @equipment.each do |e|
@@ -57,16 +56,25 @@ namespace :testFix do
   end
 end
 
-# @s.each do |s|
-# 2.4.0 :020 >     s.equipment_id = 35                                                             
-# 2.4.0 :021?>   s.save
-# 2.4.0 :022?>   end
+namespace :fixEquipNotes do
+  task doFix:  :environment do
+    # **** Find all the equipment notes *****
+    @en = EquipNote.all
+    @en.each do |en| 
+      #************* Store the equip_id 
+      $eqid = en.equip_id
+      # puts "en id = #{en.id}  eqid = #{$eqid}"
+      #************  Find the Equipment record with the equip_id from the Notes
+      @e = Equipment.where(equip_id: $eqid)
+      # puts "Writing Equipment_id to EN Record = #{@e.first.id}"
+      # ***********  Write the Equipment.id into the EquipNote equipment_id
+      en.equipment_id = @e.first.id
+      en.save
+      # puts "Looping back to en"
+    end
+  end
+end
 
-# 2.4.0 :030 > e.csa_id = 1
-# => 1 
-# 2.4.0 :031 > e.save
-
-# c = Customer.find(14)
-# c.equipment
-# c.csas
- 
+      
+      
+      

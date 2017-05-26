@@ -1,18 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Cust:</strong>
-  <%= @equipment.cust_id %>
+  <strong>Customer:</strong>
+  <%= @equipment.customer_id %>
 </p>
-
 <p>
-  <strong>Equip:</strong>
-  <%= @equipment.equip_id %>
+  <strong>Old_CustID:</strong>
+  <%= @equipment.cust_id %>
 </p>
 
 <p>
   <strong>EquipID:</strong>
   <%= @equipment.id %>
+</p>
+<p>
+  <strong>Old_EquipID:</strong>
+  <%= @equipment.equip_id %>
 </p>
 
 <p>
@@ -45,10 +48,25 @@
   <%= @equipment.date_installed %>
 </p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @equipment.customer_id %>
-</p>
 
-<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
-<%= link_to 'Back', equipment_index_path %>
+
+<div>
+  <h2>Equipment Notes</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">Note_ID</div>
+        <div class="col-md-1">Equip_ID</div>
+        <div class="col-md-1">Old_EquipID</div>
+        <div class="col-md-1">Old_CustID</div>
+        <div class="col-md-1">Notes</div>
+      </div>
+    </div>
+  </div>
+  <%= render @equipment.equip_note %>
+</div>
+
+
+<%= link_to 'Edit Equipment', edit_equipment_path(@equipment) %> |
+<%= link_to 'Equipment Detail', equipment_index_path %> |
+<%= link_to 'Customers', customers_path %>

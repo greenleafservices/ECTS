@@ -2,7 +2,7 @@
 <div class="equip-card">
   <div class="equip-card-block">
     <div class = "row">
-      <div class="col-md-1"><%= equipment.id %></div>
+      <div class="col-md-1"><%= link_to equipment.id, equipment_path(equipment.id)%></div> 
       <div class="col-md-1"><%= equipment.equip_id %></div>
       <div class="col-md-1"><%= equipment.customer_id %></div>
       <div class="col-md-1"><%= equipment.cust_id %></div>

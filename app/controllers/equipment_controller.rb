@@ -10,6 +10,7 @@ class EquipmentController < ApplicationController
   # GET /equipment/1
   # GET /equipment/1.json
   def show
+    @equipment = Equipment.includes(:equip_note).find(params[:id])
   end
 
   # GET /equipment/new

@@ -1,0 +1,2 @@
+module EquipNotesHelper
+end
