@@ -10,7 +10,7 @@ class EquipmentController < ApplicationController
   # GET /equipment/1
   # GET /equipment/1.json
   def show
-    @equipment = Equipment.includes(:equip_note, :csa).find(params[:id])
+    @equipment = Equipment.includes(:equip_note, :csa, :equip_warranty_note).find(params[:id])
   end
 
   # GET /equipment/new

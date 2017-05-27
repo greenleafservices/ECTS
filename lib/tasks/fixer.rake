@@ -75,6 +75,23 @@ namespace :fixEquipNotes do
   end
 end
 
- 
+namespace :fixWarrantyNotes do
+  task doFix:  :environment do
+    # **** Find all the equipment notes *****
+    @en = EquipWarrantyNote.all
+    @en.each do |en| 
+      #************* Store the equip_id 
+      $eqid = en.equip_id
+      # puts "en id = #{en.id}  eqid = #{$eqid}"
+      #************  Find the Equipment record with the equip_id from the Notes
+      @e = Equipment.where(equip_id: $eqid)
+      # puts "Writing Equipment_id to EN Record = #{@e.first.id}"
+      # ***********  Write the Equipment.id into the EquipNote equipment_id
+      en.equipment_id = @e.first.id
+      en.save
+      # puts "Looping back to en"
+    end
+  end
+end 
       
       

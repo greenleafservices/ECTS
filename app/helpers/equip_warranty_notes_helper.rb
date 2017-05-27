@@ -1,0 +1,2 @@
+module EquipWarrantyNotesHelper
+end
