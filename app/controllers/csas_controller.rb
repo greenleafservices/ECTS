@@ -1,6 +1,8 @@
 class CsasController < ApplicationController
   
-
+  def new
+    @csa = Csa.new
+  end
  
   def index
     @csas = Csa.by_CSA
@@ -9,6 +11,23 @@ class CsasController < ApplicationController
   def show
     @csa = Csa.find((params[:id]))
     
+  end
+  
+  def edit
+    @csa = Csa.find((params[:id]))  
+  end
+  
+  def update
+    @csa = Csa.find((params[:id]))  
+    respond_to do |format|
+      if @csa.update(csa_params)
+        format.html { redirect_to @csa, notice: 'CSA was successfully updated.' }
+        format.json { render :show, status: :ok, location: @csa }
+      else
+        format.html { render :edit }
+        format.json { render json: @csa.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   private

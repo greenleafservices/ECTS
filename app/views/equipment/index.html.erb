@@ -1,47 +1,51 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <h2>Equipment Information</h2>
+  <%= link_to 'New Equipment', new_equipment_path %>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">ID</div>
+        <div class="col-md-1">Equip_id</div>
+        <div class="col-md-1">Cust_id</div>
+        <div class="col-md-1">Cust_Old</div>
+        <!--<div class="col-md-1">CSA_ID</div>-->
+        <!--<div class="col-md-1">CSA_Old</div>-->
+        <div class="col-md-1">Serial</div>
+        <div class="col-md-1">Model</div>
+        <div class="col-md-1">Manufacturer</div>
+        <div class="col-md-1">Product Type</div>
+        <div class="col-md-1">InstallDate</div>  
+        <div class="col-md-1">Actions</div>
+      </div>
+    </div>
+  </div>
+  
+  <% @equipment.each do |e| %>
+    <div class="equip-card">
+      <div class="equip-card-block">
+        <div class = "row equip-row">
+          <div class="col-md-1"><%= e.id %></div>
+          <div class="col-md-1"><%= e.equip_id %></div>
+          <div class="col-md-1"><%= e.customer_id %></div>
+          <div class="col-md-1"><%= e.cust_id %></div>
+          <!--<div class="col-md-1"><%= e.csa_id %></div>-->
+          <!--<div class="col-md-1"><%= e.csa1 %></div>-->
+          <div class="col-md-1"><%= e.serial %></div>
+          <div class="col-md-1"><%= e.model%></div>
+          <div class="col-md-1"><%= e.manufacturer %></div>
+          <div class="col-md-1"><%= e.product_type %></div> 
+          <div class="col-md-1"><%= e.date_installed %></div>
+          <div><%= link_to 'Show', e %></div> |
+          <div><%= link_to 'Edit', edit_equipment_path(e) %></div> |
+          <div><%= link_to 'Destroy', e, method: :delete, data: { confirm: 'Are you sure?' } %></div> 
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>
 
-<h1>Equipment</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Equip_Old_id</th>
-      <th>Equip_NewID</th>
-      <th>Cust_Old</th>
-      <th>Cust_New</th>
-      <th>Csa_Old</th>
-      <th>Csa_New</th>
-      <th>Serial</th>
-      <th>Model</th>
-      <th>Manufacturer</th>
-      <th>Product type</th>
-      <th>Date installed</th>
-      <th>Customer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @equipment.each do |equipment| %>
-      <tr>
-        <td><%= equipment.equip_id %></td>
-        <td><%= equipment.id %></td>
-        <td><%= equipment.cust_id %></td>
-        <td><%= equipment.customer_id %></td>
-        <td><%= equipment.csa1 %></td>
-        <td><%= equipment.csa_id %></td>
-        <td><%= equipment.serial %></td>
-        <td><%= equipment.model %></td>
-        <td><%= equipment.manufacturer %></td>
-        <td><%= equipment.product_type %></td>
-        <td><%= equipment.date_installed %></td>
-        <td><%= link_to 'Show', equipment %></td>
-        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

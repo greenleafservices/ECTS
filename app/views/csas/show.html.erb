@@ -1,49 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cust:</strong>
-  <%= @csa.cust_id %>
-</p>
+<div>
+  <h2>CSA Information</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">ID</div>
+        <div class="col-md-1">Cust_id</div>
+        <div class="col-md-1">CSA_Old</div>
+        <div class="col-md-1">Equip_id</div>
+        <div class="col-md-1">Start Date</div>
+        <div class="col-md-1">End Date</div>
+        <div class="col-md-1">Term</div>
+        <div class="col-md-2">Equip Desc</div>
+        <div class="col-md-1">Perks</div>        
+      </div>
+    </div>
+  </div>
+  
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1"><%= @csa.id %></div>
+        <div class="col-md-1"><%= @csa.cust_id %></div>
+        <div class="col-md-1"><%= @csa.csa %></div>
+        <div class="col-md-1"><%= @csa.equip_id %></div>
+        <div class="col-md-1"><%= @csa.start_date %></div>
+        <div class="col-md-1"><%= @csa.end_date %></div>
+        <div class="col-md-1"><%= @csa.term %></div>
+        <div class="col-md-2"><%= @csa.equip_desc %></div>
+        <div class="col-md-1"><%= @csa.total_perks %></div>        
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Csa:</strong>
-  <%= @csa.csa %>
-</p>
-
-<p>
-  <strong>Equip:</strong>
-  <%= @csa.equip_id %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @csa.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @csa.end_date %>
-</p>
-
-<p>
-  <strong>Term:</strong>
-  <%= @csa.term %>
-</p>
-
-<p>
-  <strong>Equip desc:</strong>
-  <%= @csa.equip_desc %>
-</p>
-
-<p>
-  <strong>Total perks:</strong>
-  <%= @csa.total_perks %>
-</p>
-
-<p>
-  <strong>Equipment:</strong>
-  <%= @csa.equipment.id %>
-</p>
 
 <%= link_to 'Edit', edit_csa_path(@csa) %> |
 <%= link_to 'Back', csas_path %>

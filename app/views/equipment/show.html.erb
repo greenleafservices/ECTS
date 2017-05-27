@@ -1,55 +1,43 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @equipment.customer_id %>
-</p>
-<p>
-  <strong>Old_CustID:</strong>
-  <%= @equipment.cust_id %>
-</p>
-
-<p>
-  <strong>EquipID:</strong>
-  <%= @equipment.id %>
-</p>
-<p>
-  <strong>Old_EquipID:</strong>
-  <%= @equipment.equip_id %>
-</p>
-
-<p>
-  <strong>Csa:</strong>
-  <%= @equipment.csa %>
-</p>
-
-<p>
-  <strong>Serial:</strong>
-  <%= @equipment.serial %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @equipment.model %>
-</p>
-
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @equipment.manufacturer %>
-</p>
-
-<p>
-  <strong>Product type:</strong>
-  <%= @equipment.product_type %>
-</p>
-
-<p>
-  <strong>Date installed:</strong>
-  <%= @equipment.date_installed %>
-</p>
-
-
-
+<div>
+  <h2>Equipment Information</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">ID</div>
+        <div class="col-md-1">Old Equip_id</div>
+        <div class="col-md-1">Customer ID</div>
+        <div class="col-md-1">Old CustID</div>
+        <div class="col-md-1">CSA</div>
+        <div class="col-md-1">CSA_Old</div>
+        <div class="col-md-1">Serial</div>
+        <div class="col-md-1">Model</div>
+        <div class="col-md-1">Manufacturer</div>
+        <div class="col-md-2">Type</div>
+        <div class="col-md-1">Install Date</div>        
+      </div>
+    </div>
+  </div>
+  
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1"><%= @equipment.id %></div>
+        <div class="col-md-1"><%= @equipment.equip_id %></div>
+        <div class="col-md-1"><%= @equipment.customer_id %></div>
+        <div class="col-md-1"><%= @equipment.cust_id %></div>
+        <div class="col-md-1"><%= @equipment.csa_id %></div>
+        <div class="col-md-1"><%= @equipment.csa1 %></div>
+        <div class="col-md-1"><%= @equipment.serial %></div>
+        <div class="col-md-1"><%= @equipment.model %></div>
+        <div class="col-md-1"><%= @equipment.manufacturer %></div>
+        <div class="col-md-2"><%= @equipment.product_type %></div>
+        <div class="col-md-1"><%= @equipment.date_installed %></div>        
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
 <div>
   <h2>Equipment Notes</h2>
   <div class="equip-card">
@@ -59,14 +47,49 @@
         <div class="col-md-1">Equip_ID</div>
         <div class="col-md-1">Old_EquipID</div>
         <div class="col-md-1">Old_CustID</div>
-        <div class="col-md-1">Notes</div>
+        <div class="col-md-2">Notes</div>
       </div>
     </div>
   </div>
-  <%= render @equipment.equip_note %>
-</div>
-
+  <% if  @equipment.equip_note.empty? %>
+    <div>
+      <h5>No Equipment Notes for this Equipment</h>
+    </div>
+    <hr>
+  <% else %>
+    <%= render @equipment.equip_note %>
+    </div>
+    <hr>
+  <% end %>
+  
+<div>
+  <h2>CSA Information</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">CSA ID</div>
+        <div class="col-md-1">CSA-Old</div>
+        <div class="col-md-1">Old EquipID</div>
+        <div class="col-md-1">Old_CustID</div>
+        <div class="col-md-1">Start Date</div>
+        <div class="col-md-1">End Date</div>
+        <div class="col-md-1">Term</div>
+        <div class="col-md-1">Equip Desc</div>
+        <div class="col-md-1">Perks</div>
+      </div>
+    </div>
+  </div>
+  <% if  @equipment.csa == nil %>
+    <div>
+      <h5>No CSA for this Equipment</h>
+      </div>
+    <hr>
+  <% else %>
+    <%= render @equipment.csa %>
+    </div>
+    <hr>
+  <% end %>
 
 <%= link_to 'Edit Equipment', edit_equipment_path(@equipment) %> |
-<%= link_to 'Equipment Detail', equipment_index_path %> |
+<%= link_to 'Equipment List', equipment_index_path %> |
 <%= link_to 'Customers', customers_path %>
