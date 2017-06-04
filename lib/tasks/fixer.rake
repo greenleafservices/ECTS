@@ -13,7 +13,7 @@ namespace :fixEquip_IDS do
       #Write the new id for the customer
       e.customer_id = $ccid
       e.save 
-      $e_count = $e_count +1
+      $e_count = $e_count + 1
       puts "New e_count = #{$e_count}"
       puts "New_cust_id = #{$ccid}"
     end
@@ -43,7 +43,7 @@ namespace :fixCSA_IDS do
       # Write the variable to the equipment record
       e.csa_id = $csaid
       e.save 
-      $e_count = $e_count +1
+      $e_count = $e_count + 1
       puts "e_count = #{$e_count}"
       puts "csaid = #{$csaid}"
     end
@@ -79,6 +79,25 @@ namespace :fixWarrantyNotes do
   task doFix:  :environment do
     # **** Find all the equipment notes *****
     @en = EquipWarrantyNote.all
+    @en.each do |en| 
+      #************* Store the equip_id 
+      $eqid = en.equip_id
+      # puts "en id = #{en.id}  eqid = #{$eqid}"
+      #************  Find the Equipment record with the equip_id from the Notes
+      @e = Equipment.where(equip_id: $eqid)
+      # puts "Writing Equipment_id to EN Record = #{@e.first.id}"
+      # ***********  Write the Equipment.id into the EquipNote equipment_id
+      en.equipment_id = @e.first.id
+      en.save
+      # puts "Looping back to en"
+    end
+  end
+end 
+
+namespace :fixServiceCalls do
+  task doFix:  :environment do
+    # **** Find all the equipment notes *****
+    @en = EquipServiceCall.all
     @en.each do |en| 
       #************* Store the equip_id 
       $eqid = en.equip_id

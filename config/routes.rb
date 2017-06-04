@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :equip_service_calls
   resources :equip_warranty_notes
   resources :equip_notes
   resources :csas

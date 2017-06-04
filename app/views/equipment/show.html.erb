@@ -57,11 +57,13 @@
     </div>
     <hr>
   <% else %>
-    <%= render @equipment.equip_note %>
+    <div>
+      <%= render @equipment.equip_note %>
     </div>
     <hr>
   <% end %>
-<hr>
+</div>
+
 <div>
   <h2>Equipment Warranty Notes</h2>
   <div class="equip-card">
@@ -71,7 +73,7 @@
         <div class="col-md-1">Equip_ID</div>
         <div class="col-md-2">Old Equip_ID</div>
         <div class="col-md-1">Old_CustID</div>
-        <div class="col-md-">Notes</div>
+        <div class="col-md-5">Notes</div>
       </div>
     </div>
   </div>
@@ -81,11 +83,39 @@
     </div>
     <hr>
   <% else %>
-    <%= render @equipment.equip_warranty_note %>
+    <div>
+      <%= render @equipment.equip_warranty_note %>
     </div>
     <hr>
   <% end %>
-  
+</div>  
+
+<div>
+  <h2>Service Call Notes</h2>
+  <div class="equip-card">
+    <div class="equip-card-block">
+      <div class = "row equip-row">
+        <div class="col-md-1">Note_ID</div>
+        <div class="col-md-1">Equip_ID</div>
+        <div class="col-md-2">Old Equip_ID</div>
+        <div class="col-md-1">Old_CustID</div>
+        <div class="col-md-5">Notes</div>
+      </div>
+    </div>
+  </div>
+  <% if  @equipment.equip_service_call.empty? %>
+    <div>
+      <h5>No Service for this Equipment</h>
+    </div>
+    <hr>
+  <% else %>
+    <div>
+      <%= render @equipment.equip_service_call %>
+    </div>
+    <hr>
+  <% end %>
+</div>  
+
 <div>
   <h2>CSA Information</h2>
   <div class="equip-card">

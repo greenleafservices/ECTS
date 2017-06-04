@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527212054) do
+ActiveRecord::Schema.define(version: 20170604185407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(version: 20170527212054) do
     t.index ["equipment_id"], name: "index_equip_notes_on_equipment_id", using: :btree
   end
 
+  create_table "equip_service_calls", force: :cascade do |t|
+    t.integer  "call_id"
+    t.string   "equip_id"
+    t.string   "cust_id"
+    t.string   "serial"
+    t.date     "call_date"
+    t.text     "call_notes"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["equipment_id"], name: "index_equip_service_calls_on_equipment_id", using: :btree
+  end
+
   create_table "equip_warranty_notes", force: :cascade do |t|
     t.string   "equip_id"
     t.string   "cust_id"
@@ -102,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170527212054) do
   add_foreign_key "csas", "customers"
   add_foreign_key "csas", "equipment"
   add_foreign_key "equip_notes", "equipment"
+  add_foreign_key "equip_service_calls", "equipment"
   add_foreign_key "equip_warranty_notes", "equipment"
   add_foreign_key "equipment", "csas"
   add_foreign_key "equipment", "customers"
