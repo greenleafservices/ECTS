@@ -11,6 +11,9 @@ class Customer < ApplicationRecord
         csv << customer.attributes.values_at(*attributes)
       end
     end
-      
   end
+  
+  def self.by_last_name
+    order("last_name ASC")
+  end  
 end
