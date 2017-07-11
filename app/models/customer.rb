@@ -15,5 +15,6 @@ class Customer < ApplicationRecord
   
   def self.by_last_name
     order("last_name ASC")
-  end  
+  end
+  
 end

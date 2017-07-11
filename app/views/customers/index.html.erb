@@ -1,12 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Customers</h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  
+<script>
+$(document).ready
+$(document).on('change', '.custTag', function(){
+    
+    var custId = $(this).val();
+    alert (custId);
+    $.get('/customers/' + custId);
+    
+});
+
+</script>
+
+
+</head>
+
+
+<%#= select_tag 'cust_id',  options_for_select(@customers.by_last_name.collect { |c| [c.last_name, c.first_name, c.id]},{}, { :class =>"custTag"}) %>
+
+<%= select_tag( "cust_id", options_from_collection_for_select(@customers.by_last_name, :id, :last_name, (@customers_id.nil?) ? nil : @customers_id), {:class => 'custTag'}) %> 
+
+<!--<%#= redirect_to customers_path, status: 301 %>-->
 
 <table>
   <thead>
     <tr>
       <th>ID</th>
-      <th>Cust</th>
       <th>First name</th>
       <th>Last name</th>
       <th colspan="3"></th>
@@ -15,9 +41,8 @@
 
   <tbody>
     <% @customers.each do |customer| %>
-      <tr>
+      <tr class="custRow">
         <td><%= customer.id %></td>
-        <td><%= customer.cust_id %></td>
         <td><%= customer.first_name %></td>
         <td><%= customer.last_name %></td>
         <td><%= link_to 'Show', customer %></td>
@@ -31,3 +56,5 @@
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>
+
+</html>

@@ -1,0 +1,65 @@
+<!--<div class="inner cover">-->
+<div class ="app-card-container">
+  <h1 class="cover-heading">Green Leaf Services</h1>
+  <p class="lead">Providing progamming and formatting help for anyone who asks!</p>
+  
+</div>
+<script>
+$(document).ready
+$(document).on('change', '.custTag', function(){
+    
+  var custId = $(this).val();
+  alert (custId);
+  $.get('/customers/' + custId);
+  // $('#show_link').live("click", function() {
+  //   $.ajax({
+  //   url: $(this).attr('ajax_path'),  
+  //   data: { },
+  //   async: true,
+  //   dataType: 'html'
+  //   });
+  return false;
+// });
+    
+});
+
+$(document).on('change', '.equipTag', function(){
+    
+    var equipId = $(this).val();
+    alert (equipId);
+    // $.get('/equipment/' + equipId);
+    $.ajax({
+      url: '/equipment/4',
+      data: { },
+      async: true,
+      dataType: 'html'
+    });
+    return true;
+});
+
+</script>
+<%= select_tag( "cust_id", options_from_collection_for_select(@customers, :id, :last_name, (@customers_id.nil?) ? nil : @customers_id), {:class => 'custTag'}) %> 
+
+<%= select_tag( "equip_id", options_from_collection_for_select(@equipment, :id, :equip_id, (@equipment_id.nil?) ? nil : @equipment_id), {:class => 'equipTag'}) %> 
+
+<select name="cust_id">
+  <%= @customers.each do |customer| %>
+    <option value="<%= customer.id %>"><%= customer.last_name %>, <%= customer.first_name %> </option>
+  <% end %>
+</select>
+
+<!--<ul class="nav navbar-nav navbar-right">-->
+<!--  <%#= @customers.each do |customer| %>-->
+<!--    <li class="dropdown">-->
+<!--      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%#= customer.id %><b class="caret"></b></a>-->
+<!--      <ul class="dropdown-menu">-->
+<!--        <li><a href="/customer/edit">Profile Edit</a></li>-->
+<!--        <li><a href="#">Setting</a></li>-->
+<!--        <li><%#= link_to "Show", customer %></li>-->
+<!--        <li class="divider"></li>-->
+ <!--       <li><a href="customers/show">Sign Out</a></li> <%# destroy_user_session_path option would go here as well %> -->
+<!--      </ul>-->
+<!--    </li>-->
+<!--  <%# end %>-->
+<!--</ul>-->
+

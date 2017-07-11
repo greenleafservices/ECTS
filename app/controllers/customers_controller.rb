@@ -19,7 +19,10 @@ class CustomersController < ApplicationController
   def show
     # @customer = Customer.find(params[:id])
     @customer = Customer.includes(:equipment, :csas).find(params[:id])
-   
+    respond_to do |format|
+      format.html { render action: "show" }
+      # format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /customers/new
