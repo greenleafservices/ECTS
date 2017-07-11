@@ -5,14 +5,14 @@
 <html>
 <head>
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>-->
   
 <script>
 $(document).ready
 $(document).on('change', '.custTag', function(){
     
     var custId = $(this).val();
-    alert (custId);
+    console.log (custId);
     $.get('/customers/' + custId);
     
 });
@@ -23,11 +23,8 @@ $(document).on('change', '.custTag', function(){
 </head>
 
 
-<%#= select_tag 'cust_id',  options_for_select(@customers.by_last_name.collect { |c| [c.last_name, c.first_name, c.id]},{}, { :class =>"custTag"}) %>
-
 <%= select_tag( "cust_id", options_from_collection_for_select(@customers.by_last_name, :id, :last_name, (@customers_id.nil?) ? nil : @customers_id), {:class => 'custTag'}) %> 
 
-<!--<%#= redirect_to customers_path, status: 301 %>-->
 
 <table>
   <thead>
