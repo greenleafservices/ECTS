@@ -11,6 +11,10 @@ class EquipmentController < ApplicationController
   # GET /equipment/1.json
   def show
     @equipment = Equipment.includes(:equip_note, :csa, :equip_warranty_note, :equip_service_call).find(params[:id])
+    respond_to do |format|
+      format.html { render action: "show" }
+      # format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /equipment/new
