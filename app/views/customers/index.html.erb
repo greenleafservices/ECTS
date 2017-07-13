@@ -7,23 +7,53 @@
 
 <!--<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>-->
   
-<script>
-$(document).ready
-$(document).on('change', '.custTag', function(){
+<!--<script>-->
+<!--$(document).ready-->
+<!--$(document).on('change', '.custTag', function(){-->
     
-    var custId = $(this).val();
-    console.log (custId);
-    $.get('/customers/' + custId);
+<!--    var custId = $(this).val();-->
+<!--    console.log (custId);-->
+<!--    $.get('/customers/' + custId);-->
     
-});
+<!--});-->
 
-</script>
+<!--</script>-->
 
 
 </head>
+<!--<%# @item_paths = {"Select"=>"", "CustomerA" => customer_path(6311), "CustomerB" => customer_path(8398)}%>-->
+<!--<%# @add_item_paths = {"CustomerC" => customer_path(6659), "CustomerD" => customer_path(1551)}%>-->
+<!--<%# @item_paths.merge!(@add_item_paths) %>-->
+<!--<%#= select_tag :show_item, options_for_select(@item_paths)%>-->
+<!--<p><%#= @item_paths %></p>-->
 
+<!--hash = {:item1 => 1}-->
+<!--another_hash = {:item2 => 2, :item3 => 3}-->
+<!--hash.merge(another_hash)-->
 
-<%= select_tag( "cust_id", options_from_collection_for_select(@customers.by_last_name, :id, :last_name, (@customers_id.nil?) ? nil : @customers_id), {:class => 'custTag'}) %> 
+<% @custPath = {"Select"=>""} %>
+<% @customers.each do |customer| %>
+  <% @addPath = {customer.last_name + ", " + customer.first_name => customer_path(customer.id)} %>
+  <% @custPath.merge!(@addPath) %>
+<% end %> 
+
+<%= select_tag :show_item, options_for_select(@custPath)%>
+
+<script type="text/javascript">
+      $('#show_item').change(function() {
+      window.location = $(this).find('option:selected').val();
+      });
+      
+      // $('#show_item2').change(function() {
+      // window.location = $(this).find('option:selected').val();
+      // });
+      
+      // $('#show_item3').change(function() {
+      // window.location = $(this).find('option:selected').val();
+      // });
+ </script>
+
+<!--<#= select_tag( "cust_id", options_from_collection_for_select(@customers.by_last_name, :id, :last_name, (@customers_id.nil?) ? nil : @customers_id), {:class => 'custTag'}) %> -->
 
 
 <table>
