@@ -17,4 +17,7 @@ class Customer < ApplicationRecord
     order("last_name ASC")
   end
   
+  def self.by_last_first_name
+    order("last_name ASC, first_name ASC")
+  end
 end

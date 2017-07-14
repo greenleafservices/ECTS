@@ -4,7 +4,8 @@ class CustomersController < ApplicationController
   # GET /customers
   
   def index
-    @customers = Customer.by_last_name
+    # @customers = Customer.by_last_name
+    @customers = Customer.by_last_first_name
     #*************** Process for generating a csv file ****************
     #*************** Output is customers.csv in temp file
     respond_to do |format|
